@@ -5,28 +5,15 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>SI Forkomlab - Peminjaman</title>
+    <title>SI Forkomlab - User Baru</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
-
-		<!-- SCRIPTS -->
-	    <!-- JQuery -->
-	    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-	    <!-- Bootstrap tooltips -->
-	    <script type="text/javascript" src="js/tether.min.js"></script>
-	    <!-- Bootstrap core JavaScript -->
-	    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-		<!--datepick-->
-		<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
 
     <style type="text/css">
         h3{
@@ -73,63 +60,75 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <h1>Reservasi Laboratorium</h1>
+                    <h1>Daftar user baru</h1>
                 </div>
             </div>
             <hr>
             <form>
                 <h3>
-                    Untuk Lab :
+                    Nama user:
                 </h3>
-                <label for="Lab">Pilih salah satu:</label>
-                  <select class="form-control" id="Lab">
-                    <option value="LP">LP</option>
-                    <option value="LP2">LP2</option>
-                    <option value="KCV">KCV</option>
-                    <option value="AJK">AJK</option>
-                  </select>
+                <input type="text" name="nama">
                 <br>
-
+                <br>
+                <br>
                 <h3>
-                    Hari dan tanggal :
+                    NRP :
                 </h3>
+                <input type="text" name="nrp">
+                <br>
+                <br>
+                <br>
+                <h3>
+                    Password :
+                </h3>
+                <input type="password" name="psw">
+                <br>
+                <br>
+                <br>
+                <h3>
+                    Jabatan :
+                </h3>
+								<div class="btn-group" data-toggle="buttons">
+								  <label class="btn btn-primary active">
+								    <input type="radio" name="jabatan" id="option1" autocomplete="off" checked> Administrator
+								  </label>
+								  <label class="btn btn-primary">
+								    <input type="radio" name="jabatan" id="option2" autocomplete="off"> User TA
+								  </label>
+								</div>
 
-								<input type="date" class="datepicker">
-									<br>
-									<br>
-									<br>
-									<h3>
-	                    Nama Penanggung jawab:
-	                </h3>
-	                <input type="text" name="nama">
-	                <br>
-	                <br>
-	                <br>
-	                <h3>
-	                    NRP :
-	                </h3>
-	                <input type="text" name="nrp">
-	                <br>
-	                <br>
-	                <br>
-	                <h3>
-										Keperluan :
-									</h3>
-									<input type="text" name="penting">
-									<br>
-									<br>
-									<br>
-
+								<!--<input type="radio" name="jab" value="admin"> <p>Admin</p>
+                <input type="radio" name="jab" value="TA"> <p>User TA</p>
+							-->
+                <br>
+                <br>
+                <br>
+                <p>Dengan ini menyetujui aturan dan syarat untuk menjadi anggota ForkomLAB Teknik Informatika ITS</p>
+								<label class="btn btn-primary active">
+							  	<input type="checkbox" name="setuju" checked autocomplete="off"> Saya setuju
+							  </label>
+                <br>
+                <br>
+                <br>
                 <a class="btn btn-default" href="">Submit</a>
             </form>
 
         </div>
     </main>
 
-		<!-- MDB core JavaScript -->
-		<script type="text/javascript" src="js/mdb.min.js"></script>
-
-
+	<!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/tether.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
 </body>
 
 </html>
+<?php
+	include('footer.php');
+ ?>
