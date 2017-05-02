@@ -1,0 +1,89 @@
+SQL database SI FORKOMLAB
+
+CREATE TABLE `admin_lab` (
+  `id_admin_lab` int(5) NOT NULL auto_increment,
+  `nama_admin_lab` varchar(30) NOT NULL,
+  `no_telepon_admin_lab` varchar(15),
+  `alamat_admin_lab` varchar(50) NOT NULL,
+  `email_admin_lab` varchar(20) NOT NULL,
+  `username_admin_lab` varchar(20) NOT NULL,
+  `password_admin_lab` varchar(18) NOT NULL,
+  PRIMARY KEY  (`id_admin_lab`)
+) ENGINE=INNODB;
+
+CREATE TABLE `admin_sistem` (
+  `id_admin_sistem` int(5) NOT NULL auto_increment,
+  `nama_admin_sistem` varchar(30) NOT NULL,
+  `no_telepon_admin_lab` varchar(15),
+  `username_admin_sistem` varchar(20) NOT NULL,
+  `password_admin_sistem` varchar(18) NOT NULL,
+  PRIMARY KEY  (`id_admin_sistem`)
+) ENGINE=INNODB;
+
+CREATE TABLE `laboratorium` (
+  `id_lab` int(5) NOT NULL auto_increment,
+  `id_admin_lab` int(5),
+  `nama_lab` varchar(20),
+  `website_lab` varchar(20),
+  PRIMARY KEY  (`id_lab`),
+  CONSTRAINT fk_id_admin_lab FOREIGN KEY (id_admin_lab)
+  REFERENCES admin_lab(id_admin_lab)
+  ON DELETE SET NULL
+  ON UPDATE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE `anggota_lab` (
+  `id_anggota_lab` int(5) NOT NULL auto_increment,
+  `id_lab` int(5),
+  `jabatan_anggota_lab` varchar(15),
+  `nama_anggota_lab` varchar(30),
+    `email_anggota_lab` varchar(30),
+    `judul_riset` varchar(50),
+  PRIMARY KEY  (`id_anggota_lab`),
+  CONSTRAINT fk_id_lab FOREIGN KEY (id_lab)
+  REFERENCES laboratorium(id_lab)
+  ON DELETE SET NULL
+  ON UPDATE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE `pengumuman` (
+  `id_pengumuman` int(5) NOT NULL auto_increment,
+  `id_admin_lab` int(5),
+  `id_admin_sistem` int(5),
+  `tgl_pengumuman` timestamp,
+  `judul_pengumuman` varchar(50),
+  `gambar_pengumuman` blob,
+  `isi_pengumuman` text,
+  PRIMARY KEY  (`id_pengumuman`),
+  CONSTRAINT fk_id_admin_lab1 FOREIGN KEY (id_admin_lab)
+  REFERENCES admin_lab(id_admin_lab)
+  ON DELETE SET NULL
+  ON UPDATE CASCADE,
+    CONSTRAINT fk_id_admin_sistem1 FOREIGN KEY (id_admin_sistem)
+  REFERENCES admin_sistem(id_admin_sistem)
+  ON DELETE SET NULL
+  ON UPDATE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE `user` (
+  `id_user` int(5) NOT NULL auto_increment,
+  `nama_user` varchar(20),
+  `nrp_user` varchar(10),
+  PRIMARY KEY  (`id_pengumuman`)
+) ENGINE=INNODB;
+
+CREATE TABLE `saran` (
+  `id_saran` int(5) NOT NULL auto_increment,
+  `id_user` int(5),
+  `id_lab` int(5),
+  `isi_saran` text,
+  PRIMARY KEY  (`id_saran`),
+  CONSTRAINT fk_id_user FOREIGN KEY (id_user)
+  REFERENCES user(id_user)
+  ON DELETE SET NULL
+  ON UPDATE CASCADE,
+    CONSTRAINT fk_id_lab1 FOREIGN KEY (id_lab)
+  REFERENCES laboratorium(id_lab)
+  ON DELETE SET NULL
+  ON UPDATE CASCADE
+) ENGINE=INNODB;
