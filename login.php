@@ -51,7 +51,7 @@
         <!--/.Navbar-->
 	</header>
 
-		
+
 	<main class="pt-6">
 		<div class="container">
             <div class="row">
@@ -62,18 +62,18 @@
             <hr>
 
             <div class="row">
-			    <div class="col-md-4"> </div> 
+			    <div class="col-md-4"> </div>
 			    <div class="col-md-4">
 			    	<!--Naked Form-->
 			    		<br>
 					    <div class="md-form">
 					        <i class="fa fa-user prefix"></i>
-					        <input type="text" id="form2" class="form-control text-center">
+					        <input type="text" id="form2" class="form-control text-center" name="user">
 					        <label for="form2">Username</label>
 					    </div>
 					    <div class="md-form">
 					        <i class="fa fa-lock prefix"></i>
-					        <input type="password" id="form4" class="form-control text-center">
+					        <input type="password" id="form4" class="form-control text-center" name="pass">
 					        <label for="form4">Password</label>
 					    </div>
 
@@ -81,12 +81,12 @@
 					        <button class="btn btn-deep-purple">Login</button>
 					    </div>
 					<!--Naked Form-->
-			    </div> 
+			    </div>
 			    <div class="col-md-4"> </div>
 			</div>
 
 
-			
+
 
 
 
