@@ -80,8 +80,8 @@
                         <div class="col-3">
 
                             <div class="data-card text-center">
-                                <h3>6 104</h3>
-                                <p>Sessions</p>
+                                <h3>104</h3>
+                                <p>Jumlah user</p>
                             </div>
 
                         </div>
@@ -89,7 +89,7 @@
 
                             <div class="data-card text-center">
                                 <h3>420</h3>
-                                <p>Pages per session</p>
+                                <p>Jumlah prestasi</p>
                             </div>
 
                         </div>
@@ -97,15 +97,15 @@
 
                             <div class="data-card text-center">
                                 <h3>1 785</h3>
-                                <p>New Sessions</p>
+                                <p>Jumlah agenda  </p>
                             </div>
 
                         </div>
                         <div class="col-3">
 
                             <div class="data-card text-center">
-                                <h3>1 890</h3>
-                                <p>Users</p>
+                                <h3>890</h3>
+                                <p>Jumlah Inbox saran</p>
                             </div>
 
                         </div>
@@ -134,7 +134,7 @@
 
                                                 <!--Panel title-->
                                                 <div class="view left primary-color">
-                                                    <h2>Pengumuman</h2>
+                                                    <h2 style="color:white">Pengumuman</h2>
                                                 </div>
                                                 <!--/Panel title-->
                                                 <br>
@@ -146,7 +146,12 @@
                                                   Hari, tanggal: <?php echo date('D').", ".date('d-M-Y');
                                                    ?>
                                                 </h3>
-
+                                                <br>
+                                                <br>
+                                                  <h2><b>
+                                                    Tidak Ada pengumuman
+                                                  </b>
+                                                  </h2>
 
                                             </div>
                                             <!--/First column-->
@@ -155,18 +160,21 @@
                                             <div class="col-md-7">
                                                 <!--Cascading element-->
                                                 <div class="view right primary-color mb-r">
+                                                  <h2 style="color:white">
+                                                    Pilihan lain
+                                                  </h2>
                                                     <!--Main chart-->
                                                     <a class="btn btn-default" href="form-daftar.php" style="width:400px">Daftarkan user baru
                                                     </a><br>
-                                                    <a class="btn btn-default" href="#" style="width:400px">Daftar User baru
+                                                    <a class="btn btn-default" href="list_user.php" style="width:400px">Daftar User
                                                     </a><br>
                                                     <a class="btn btn-default" href="form-peminjaman.php" style="width:400px">Daftarkan Agenda
                                                     </a><br>
-                                                    <a class="btn btn-default" href="#" style="width:400px">Daftar Agenda
+                                                    <a class="btn btn-default" href="list_agenda.php" style="width:400px">Daftar Agenda
                                                     </a><br>
                                                     <a class="btn btn-default" href="form-prestasi.php" style="width:400px">Daftarkan Prestasi
                                                     </a><br>
-                                                    <a class="btn btn-default" href="#" style="width:400px">Daftar Prestasi
+                                                    <a class="btn btn-default" href="list_prestasi.php" style="width:400px">Daftar Prestasi
                                                     </a><br>
                                                 </div>
                                                 <!--/Cascading element-->
@@ -196,9 +204,8 @@
                                             <table class="table large-header">
                                                 <thead>
                                                     <tr>
-                                                        <th>Keywords</th>
-                                                        <th>Visits</th>
-                                                        <th>Pages</th>
+                                                        <th>Pesan</th>
+                                                        <th>Dari</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
