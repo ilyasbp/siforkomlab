@@ -61,7 +61,7 @@
                             </div>
                         </li>
                         <li class="nav-item navbar-toggler-right">
-                            <a href="login.html" class="nav-link">Login</a>
+                            <a href="login.php" class="nav-link">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -77,8 +77,8 @@
                         <h2>Selamat datang di SI-FORKOMLAB</h2>
                         <h5>Jurusan Teknik Informatika ITS</h5>
                         <br>
-                        <a href="lab.html"><button type="button" class="btn special-color-dark">Laboratorium</button></a>
-                        <button type="button" class="btn stylish-color-dark">Kunci Parkir</button>
+                        <a href="lab.php"><button type="button" class="btn special-color-dark">Laboratorium</button></a>
+                        <a href="status-kunci.php"><button type="button" class="btn stylish-color-dark">Kunci Parkir</button></a>
                     </div>
                 </div>
             </div>
