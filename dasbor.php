@@ -205,7 +205,8 @@
                                                 <thead>
                                                     <tr>
                                                         <th>Pesan</th>
-                                                        <th>Dari</th>
+                                                        <th>Penulis</th>
+                                                        <th>Pages</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
