@@ -5,7 +5,8 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>SI Forkomlab - Laboratorium</title>
+
+    <title>SI Forkomlab - Status Kunci</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -16,8 +17,8 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
-	<header>
+<body onload="startTime()">
+    <header>
         <!--Navbar-->
         <nav class="navbar fixed-top navbar-toggleable-md scrolling-navbar navbar-dark unique-color-dark">
             <div class="container">
@@ -41,61 +42,48 @@
                             </div>
                         </li>
                         <li class="nav-item navbar-toggler-right">
-                            <a href="login.php" class="nav-link">Login</a>
+                            <a href="login.html" class="nav-link">Login</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!--/.Navbar-->
-	</header>
+    </header>
 
-	<main class="pt-6 text-center">
+    <main class="pt-6 text-center">
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <h1>LABORATORIUM</h1>
+                    <h1>Status Kunci Parkir</h1>
                 </div>
             </div>
 
             <hr>
             <div class="row">
                 <div class="col-md-6">
-                    <h2>Laboratorium Pemrograman</h2>
+                    <h1><strong>Status</strong></h1>
+                    <hr>
+                    <h3 id="tgl"></h3>
+                    <h2 id="waktu"></h2>
+                    <h1> Belum Diambil </h1>
+                    <h5>Lokasi</h5>
+                    <h3>Laboratorium Pemrograman</h3>
                 </div>
                 <div class="col-md-6">
-                    <a><button type="button" class="btn btn-info">LP</button></a>
-                    <a><button type="button" class="btn default-color">Jadwal</button></a>
-                    <a><button type="button" class="btn warning-color">Saran</button></a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Laboratorium Pemrograman</h2>
-                </div>
-                <div class="col-md-6">
-                    <a><button type="button" class="btn btn-info">LP</button></a>
-                    <a><button type="button" class="btn default-color">Jadwal</button></a>
-                    <a><button type="button" class="btn warning-color">Saran</button></a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Laboratorium Pemrograman</h2>
-                </div>
-                <div class="col-md-6">
-                    <a><button type="button" class="btn btn-info">LP</button></a>
-                    <a><button type="button" class="btn default-color">Jadwal</button></a>
-                    <a><button type="button" class="btn warning-color">Saran</button></a>
+                    <h1><strong>Jadwal</strong></h1>
+                    <hr>
+                    <h1> Belum Diambil </h1>
+                    <h5>Lokasi</h5>
+                    <h3>Laboratorium Pemrograman</h3>
                 </div>
             </div>
             <div style="height:2000px;"></div>
+
         </div>
     </main>
 
-	<!-- SCRIPTS -->
+    <!-- SCRIPTS -->
     <!-- JQuery -->
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <!-- Bootstrap tooltips -->
@@ -104,6 +92,37 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Server Date Javascript -->
+    <script>
+        function startTime() {
+            var myMonths = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('waktu').innerHTML = h + ":" + m + ":" + s;
+
+            var day = today.getDate();
+            var month = today.getMonth();
+            var thisDay = today.getDay(),
+                thisDay = myDays[thisDay];
+            var yy = today.getYear();
+            var year = (yy < 1000) ? yy + 1900 : yy;
+
+            
+            document.getElementById('tgl').innerHTML = thisDay + ', ' + day + ' ' + myMonths[month] + ' ' + year;
+
+
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+            return i;
+        }
+    </script>
 </body>
 
 </html>
