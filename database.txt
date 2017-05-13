@@ -84,7 +84,7 @@ CREATE TABLE `saran` (
 CREATE TABLE `reservasi` (
   `id_reserv` int(5) NOT NULL auto_increment,
   `id_lab` int(5),
-  `haritgl` TIMESTAMP,
+  `haritgl` DATETIME,
   `nama_pj` varchar(20),
   `telp` varchar(20),
   `nrp` varchar(20),
@@ -99,7 +99,7 @@ CREATE TABLE `prestasi` (
   `nama` varchar(20),
   `nrp` varchar(20),
   `lomba` varchar(20),
-  `haritgl` TIMESTAMP,
+  `haritgl` DATETIME,
   `peringkat` varchar(20),
   `sertif` blob(20),
   `id_lab` INT(5),
