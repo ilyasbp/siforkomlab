@@ -164,7 +164,11 @@
                                                     Pilihan lain
                                                   </h2>
                                                     <!--Main chart-->
-                                                    <a class="btn btn-default" href="form-daftar.php" style="width:400px">Daftarkan user baru
+                                                    <a class="btn btn-default" href="form-daftar-admin-anggota.php" style="width:400px">Daftarkan admin baru
+                                                    </a><br>
+                                                    <a class="btn btn-default" href="list_user.php" style="width:400px">Daftar Admin
+                                                    </a><br>
+                                                    <a class="btn btn-default" href="form-daftar-user.php" style="width:400px">Daftarkan user TA baru
                                                     </a><br>
                                                     <a class="btn btn-default" href="list_user.php" style="width:400px">Daftar User
                                                     </a><br>

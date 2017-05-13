@@ -22,14 +22,14 @@ CREATE TABLE `admin_sistem` (
 
 CREATE TABLE `laboratorium` (
   `id_lab` int(5) NOT NULL auto_increment,
-  `id_admin_lab` int(5),
+  #`id_admin_lab` int(5),
   `nama_lab` varchar(20),
   `website_lab` varchar(20),
-  PRIMARY KEY  (`id_lab`),
-  CONSTRAINT fk_id_admin_lab FOREIGN KEY (id_admin_lab)
-  REFERENCES admin_lab(id_admin_lab)
-  ON DELETE SET NULL
-  ON UPDATE CASCADE
+  PRIMARY KEY  (`id_lab`)
+  #CONSTRAINT fk_id_admin_lab FOREIGN KEY (id_admin_lab)
+  #REFERENCES admin_lab(id_admin_lab)
+  #ON DELETE SET NULL
+  #ON UPDATE CASCADE
 ) ENGINE=INNODB;
 
 CREATE TABLE `anggota_lab` (
@@ -56,20 +56,16 @@ CREATE TABLE `pengumuman` (
   `isi_pengumuman` text,
   PRIMARY KEY  (`id_pengumuman`),
   CONSTRAINT fk_id_admin_lab1 FOREIGN KEY (id_admin_lab)
-  REFERENCES admin_lab(id_admin_lab)
-  ON DELETE SET NULL
-  ON UPDATE CASCADE,
-    CONSTRAINT fk_id_admin_sistem1 FOREIGN KEY (id_admin_sistem)
+  REFERENCES admin_lab(id_admin_lab),
+  CONSTRAINT fk_id_admin_sistem1 FOREIGN KEY (id_admin_sistem)
   REFERENCES admin_sistem(id_admin_sistem)
-  ON DELETE SET NULL
-  ON UPDATE CASCADE
 ) ENGINE=INNODB;
 
 CREATE TABLE `user` (
   `id_user` int(5) NOT NULL auto_increment,
   `nama_user` varchar(20),
   `nrp_user` varchar(10),
-  PRIMARY KEY  (`id_pengumuman`)
+  PRIMARY KEY  (`id_user`)
 ) ENGINE=INNODB;
 
 CREATE TABLE `saran` (
@@ -77,13 +73,37 @@ CREATE TABLE `saran` (
   `id_user` int(5),
   `id_lab` int(5),
   `isi_saran` text,
-  PRIMARY KEY  (`id_saran`),
-  CONSTRAINT fk_id_user FOREIGN KEY (id_user)
-  REFERENCES user(id_user)
-  ON DELETE SET NULL
-  ON UPDATE CASCADE,
-    CONSTRAINT fk_id_lab1 FOREIGN KEY (id_lab)
-  REFERENCES laboratorium(id_lab)
-  ON DELETE SET NULL
-  ON UPDATE CASCADE
+  PRIMARY KEY  (`id_saran`)
+#  CONSTRAINT fk_id_user FOREIGN KEY (id_user)
+#  REFERENCES user(id_user)
+#  ON DELETE SET NULL
+#  ON UPDATE CASCADE,
+#  CONSTRAINT fk_id_lab1 FOREIGN KEY (id_lab)
+#  REFERENCES laboratorium(id_lab),
+#  ON DELETE SET NULL
+#  ON UPDATE CASCADE
+) ENGINE=INNODB;
+
+CREATE TABLE `reservasi` (
+  `id_reserv` int(5) NOT NULL auto_increment,
+  `haritgl` TIMESTAMP,
+  `nama_pj` varchar(20),
+  `telp` varchar(20),
+  `nrp` varchar(20),
+  `keperluan` varchar(20),
+  PRIMARY KEY  (`id_reserv`)
+) ENGINE=INNODB;
+
+CREATE TABLE `prestasi` (
+  `id_pres` int(5) NOT NULL auto_increment,
+  `nama` varchar(20),
+  `nrp` varchar(20),
+  `lomba` varchar(20),
+  `haritgl` TIMESTAMP,
+  `peringkat` varchar(20),
+  `sertif` blob(20),
+  `id_lab` INT(5),
+  CONSTRAINT fk_id_lab1 FOREIGN KEY (id_lab)
+  REFERENCES laboratorium(id_lab),
+  PRIMARY KEY  (`id_pres`)
 ) ENGINE=INNODB;
