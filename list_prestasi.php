@@ -1,6 +1,20 @@
 <?php
   include 'header.php';
   include 'navbar.php';
+  include 'config/database.php';
+
+  $database = new Database();
+  $db = $database->getConnection();
+
+    //if(isset($_SESSION["id"])){
+      $nama_tabel = "prestasi";
+#      $_SESSION['id_lab'] = 1;
+      $id_lab_temp = 1;
+      $sql = "SELECT * FROM `$nama_tabel` WHERE id_lab = '$id_lab_temp'";
+      $res = $db->query($sql);
+
+    //}
+
 ?>
 
 <main class="pt-6 text-center">
@@ -16,17 +30,40 @@
         <table class="display dataTable" style="width:70%; text-align: center">
           <thead>
                   <tr>
-                    <th>No</th>
+                    <th>ID</th>
                     <th>Nama</th>
+                    <th>NRP</th>
                     <th>Kejuaraan</th>
                     <th>Peringkat</th>
                     <th style="text-align: center;">Ubah</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <?php
+                    $cnt = $res->num_rows;
+                    if($cnt>0){
+                      while($row = $res->fetch_array(MYSQLI_ASSOC)){
+                        $id = $row['id_pres'];
+
+                        echo "<tr>";
+                        echo "<td>".$row["nama"]."</td>";
+                        echo "<td>".$row["nama_user"]."</td>";
+                        echo "<td>".$row["nrp"]."</td>";
+                        echo "<td>".$row["lomba"]."</td>";
+                        echo "<td>".$row["peringkat"]."</td>";
+                        echo "<td><a href='detail-item.php?id=".$id."&act=prestasi' class='btn btn-default'>Lihat detail</a>";
+                        echo "<a href='delete-item.php?id=".$id."&act=prestasi' class='btn btn-danger'>Hapus</a></td>";
+                        echo "</tr>";
+                      }
+                    }
+                    else {
+                      echo "<h1>Tidak ada user</h1>";
+                    }
+                   ?>
                   <tr>
                     <td>1</td>
                     <td>Ilyas B</td>
+                    <td>511012256</td>
                     <td>Hackathon</td>
                     <td>Juara Harapan 1</td>
                     <td><a href="detail_prestasi.php" class="btn btn-default">Lihat detail</a>
@@ -36,6 +73,7 @@
                   <tr>
                     <td>2</td>
                     <td>R.Ay. Noormala Nadya</td>
+                    <td>5114100127</td>
                     <td>Indie Game</td>
                     <td>Juara 1</td>
                     <td><a href="" class="btn btn-default">Lihat detail</a>
@@ -45,6 +83,7 @@
                   <tr>
                     <td>3</td>
                     <td>A. Galang Anugerah</td>
+                    <td>5112100157</td>
                     <td>TCode</td>
                     <td>Juara 2</td>
                     <td><a href="" class="btn btn-default">Lihat detail</a>
@@ -54,6 +93,7 @@
                   <tr>
                     <td>4</td>
                     <td>Kukuh Rilo</td>
+                    <td>5113100178</td>
                     <td>Capture Flag</td>
                     <td>Juara 2</td>
                     <td><a href="" class="btn btn-default">Lihat detail</a>

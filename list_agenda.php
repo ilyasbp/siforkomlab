@@ -1,6 +1,19 @@
 <?php
   include 'header.php';
   include 'navbar.php';
+  include 'config/database.php';
+
+  $database = new Database();
+  $db = $database->getConnection();
+
+    //if(isset($_SESSION["id"])){
+      $nama_tabel = "reservasi";
+#      $_SESSION['id_lab'] = 1;
+      $id_lab_temp = 1;
+      $sql = "SELECT * FROM `$nama_tabel` WHERE id_lab = '$id_lab_temp'";
+      $res = $db->query($sql);
+
+    //}
 ?>
 
 <main class="pt-6 text-center">

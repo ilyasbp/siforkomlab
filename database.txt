@@ -2,13 +2,14 @@ SQL database SI FORKOMLAB
 
 CREATE TABLE `admin_lab` (
   `id_admin_lab` int(5) NOT NULL auto_increment,
+  `id_lab` int(5),
   `nama_admin_lab` varchar(30) NOT NULL,
   `no_telepon_admin_lab` varchar(15),
   `alamat_admin_lab` varchar(50) NOT NULL,
   `email_admin_lab` varchar(20) NOT NULL,
   `username_admin_lab` varchar(20) NOT NULL,
   `password_admin_lab` varchar(18) NOT NULL,
-  PRIMARY KEY  (`id_admin_lab`)
+  PRIMARY KEY  (`id_admin_lab`),
 ) ENGINE=INNODB;
 
 CREATE TABLE `admin_sistem` (
@@ -26,10 +27,6 @@ CREATE TABLE `laboratorium` (
   `nama_lab` varchar(20),
   `website_lab` varchar(20),
   PRIMARY KEY  (`id_lab`)
-  #CONSTRAINT fk_id_admin_lab FOREIGN KEY (id_admin_lab)
-  #REFERENCES admin_lab(id_admin_lab)
-  #ON DELETE SET NULL
-  #ON UPDATE CASCADE
 ) ENGINE=INNODB;
 
 CREATE TABLE `anggota_lab` (
@@ -86,12 +83,15 @@ CREATE TABLE `saran` (
 
 CREATE TABLE `reservasi` (
   `id_reserv` int(5) NOT NULL auto_increment,
+  `id_lab` int(5),
   `haritgl` TIMESTAMP,
   `nama_pj` varchar(20),
   `telp` varchar(20),
   `nrp` varchar(20),
   `keperluan` varchar(20),
-  PRIMARY KEY  (`id_reserv`)
+  PRIMARY KEY  (`id_reserv`),
+  CONSTRAINT fk_id_lab3 FOREIGN KEY (id_lab)
+  REFERENCES laboratorium(id_lab)
 ) ENGINE=INNODB;
 
 CREATE TABLE `prestasi` (
@@ -107,3 +107,6 @@ CREATE TABLE `prestasi` (
   REFERENCES laboratorium(id_lab),
   PRIMARY KEY  (`id_pres`)
 ) ENGINE=INNODB;
+
+alter table admin_lab add id_lab int(5);
+alter table admin_lab add  CONSTRAINT fk_id_lab2 FOREIGN KEY (id_lab) REFERENCES laboratorium(id_lab);
