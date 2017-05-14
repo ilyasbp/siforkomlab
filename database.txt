@@ -1,23 +1,11 @@
-SQL database SI FORKOMLAB
-
-CREATE TABLE `admin_lab` (
-  `id_admin_lab` int(5) NOT NULL auto_increment,
-  `id_lab` int(5),
-  `nama_admin_lab` varchar(30) NOT NULL,
-  `no_telepon_admin_lab` varchar(15),
-  `alamat_admin_lab` varchar(50) NOT NULL,
-  `email_admin_lab` varchar(20) NOT NULL,
-  `username_admin_lab` varchar(20) NOT NULL,
-  `password_admin_lab` varchar(18) NOT NULL,
-  PRIMARY KEY  (`id_admin_lab`),
-) ENGINE=INNODB;
+#SQL database SI FORKOMLAB
 
 CREATE TABLE `admin_sistem` (
   `id_admin_sistem` int(5) NOT NULL auto_increment,
   `nama_admin_sistem` varchar(30) NOT NULL,
   `no_telepon_admin_lab` varchar(15),
-  `username_admin_sistem` varchar(20) NOT NULL,
-  `password_admin_sistem` varchar(18) NOT NULL,
+  `username_admin_sistem` varchar(20) NOT NULL UNIQUE,
+  `password_admin_sistem` varchar(255) NOT NULL,
   PRIMARY KEY  (`id_admin_sistem`)
 ) ENGINE=INNODB;
 
@@ -27,6 +15,20 @@ CREATE TABLE `laboratorium` (
   `nama_lab` varchar(20),
   `website_lab` varchar(20),
   PRIMARY KEY  (`id_lab`)
+) ENGINE=INNODB;
+
+CREATE TABLE `admin_lab` (
+  `id_admin_lab` int(5) NOT NULL auto_increment,
+  `id_lab` int(5),
+  `nama_admin_lab` varchar(30) NOT NULL,
+  `no_telepon_admin_lab` varchar(15),
+  `alamat_admin_lab` varchar(50) NOT NULL,
+  `email_admin_lab` varchar(20) NOT NULL,
+  `username_admin_lab` varchar(20) NOT NULL UNIQUE,
+  `password_admin_lab` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id_admin_lab`),
+  CONSTRAINT fk_id_lab2 FOREIGN KEY (id_lab)
+  REFERENCES laboratorium(id_lab)
 ) ENGINE=INNODB;
 
 CREATE TABLE `anggota_lab` (
@@ -108,5 +110,3 @@ CREATE TABLE `prestasi` (
   PRIMARY KEY  (`id_pres`)
 ) ENGINE=INNODB;
 
-alter table admin_lab add id_lab int(5);
-alter table admin_lab add  CONSTRAINT fk_id_lab2 FOREIGN KEY (id_lab) REFERENCES laboratorium(id_lab);

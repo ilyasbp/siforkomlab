@@ -24,7 +24,7 @@
             header("location: dasbor.php");
         }else{
             // Jika login gagal, ambil pesan error
-            $error = $user->getLastError();
+            $error = $admin->getLastError();
         }
     }
 

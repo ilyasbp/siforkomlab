@@ -20,7 +20,7 @@
         }
 
         // Registrasi admin baru
-        public function register($nama, $nope, $alamat, $email, $username, $password)
+        public function register($nama, $nope, $alamat, $email, $username, $password, $id_lab)
         {
             try
             {
@@ -28,13 +28,14 @@
                 $hashPasswd = password_hash($password, PASSWORD_DEFAULT);
 
                 //Masukkan admin baru ke database
-                $query = $this->conn->prepare("INSERT INTO admin_lab(nama_admin_lab, no_telepon_admin_lab, alamat_admin_lab, email_admin_lab, username_admin_lab, password_admin_lab) VALUES(:nama, :nope, :alamat, :email, :username, :password)");
+                $query = $this->conn->prepare("INSERT INTO admin_lab(nama_admin_lab, no_telepon_admin_lab, alamat_admin_lab, email_admin_lab, username_admin_lab, password_admin_lab, id_lab) VALUES(:nama, :nope, :alamat, :email, :username, :password, :id_lab)");
                 $query->bindParam(":nama", $nama);
                 $query->bindParam(":nope", $nope);
                 $query->bindParam(":alamat", $alamat);
                 $query->bindParam(":email", $email);
                 $query->bindParam(":username", $username);
                 $query->bindParam(":password", $hashPasswd);
+                $query->bindParam(":id_lab", $id_lab);
                 $query->execute();
 
                 return true;
