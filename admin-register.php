@@ -1,0 +1,120 @@
+<?php
+	include_once "config/database.php";
+    include_once "object/admin.php";
+
+    // get database connection
+	$database = new Database();
+	$db = $database->getConnection();
+
+	// Buat object user
+    $admin = new Admin($db);
+
+	include_once 'header.php';
+	include_once 'navbar.php';
+
+	// Jika sudah login
+    if($admin->isLoggedIn()){
+        header("location: dasbor.php"); //Redirect ke index
+    }
+
+    //Jika ada data dikirim
+    if(isset($_POST['kirim'])){
+        $nama = $_POST['nama'];
+        $nope = $_POST['nope'];
+        $alamat = $_POST['alamat'];
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        // Registrasi admin baru
+        if($admin->register($nama, $nope, $alamat, $email, $username, $password)){
+            // Jika berhasil set variable success ke true
+            $success = true;
+        }else{
+            // Jika gagal, ambil pesan error
+            $error = $admin->getLastError();
+        }
+    }
+?>
+
+<main class="pt-6">
+		<div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h1>ADMININISTRATOR REGISTRATION</h1>
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+			    <div class="col-md-4"> </div>
+			    <div class="col-md-4">
+			    	<!--Naked Form-->
+			    		<br>
+			    		<form class="register-form" method="post">
+			    			<?php if (isset($error)): ?>
+				                <div class="error">
+				                    <?php echo $error ?>
+				                </div>
+			              	<?php endif; ?>
+			              	<?php if (isset($success)): ?>
+			                  	<div class="success">
+			                      	Berhasil mendaftar. Silakan <a href="login.php">masuk</a>
+			                  	</div>
+			              	<?php endif; ?>
+						    	
+						    	<div class="md-form">
+						        <i class="fa fa-user prefix"></i>
+						        <input type="text" id="formNama" class="form-control" name="nama">
+						        <label for="formNama">Nama Lengkap</label>
+						    </div>
+						    <div class="md-form">
+						        <i class="fa fa-phone-square prefix"></i>
+						        <input type="text" id="formNope" class="form-control" name="nope">
+						        <label for="formNope">Nomor Telepon</label>
+						    </div>
+						    <div class="md-form">
+						        <i class="fa fa-home prefix"></i>
+						        <input type="text" id="formAlamat" class="form-control" name="alamat">
+						        <label for="formAlamat">Alamat</label>
+						    </div>
+						    <div class="md-form">
+						        <i class="fa fa-envelope prefix"></i>
+						        <input type="text" id="formEmail" class="form-control" name="email">
+						        <label for="formEmail">Email</label>
+						    </div>
+						    <div class="md-form">
+						        <i class="fa fa-user prefix"></i>
+						        <input type="text" id="formUsername" class="form-control" name="username">
+						        <label for="formUsername">Username</label>
+						    </div>
+						    <div class="md-form">
+						        <i class="fa fa-lock prefix"></i>
+						        <input type="password" id="form4" class="form-control" name="password">
+						        <label for="form4">Password</label>
+						    </div>
+
+						    <div class="text-center">
+						        <button type="submit" name="kirim" class="btn btn-deep-purple">Register</button>
+						    </div>
+						</form>
+					<!--Naked Form-->
+			    </div>
+			    <div class="col-md-4"> </div>
+			</div>
+        </div>
+        <?php
+          include_once 'footer.php';
+         ?>
+	</main>
+
+	<!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/tether.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+</body>

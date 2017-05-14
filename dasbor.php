@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+    include_once "login-sync.php";
   $date = new DateTime();
   $skrg = $date->getTimestamp();
  ?>
@@ -51,7 +52,16 @@
                             </div>
                         </li>
                         <li class="nav-item navbar-toggler-right">
-                            <a href="login.html" class="nav-link">Login</a>
+                            <?php
+                                if($admin->isLoggedIn()){
+                                    echo '<a href="logout.php" class="nav-link">Logout</a>';
+                                }
+                                else{
+                                    echo '<a href="login.php" class="nav-link">Login</a>';
+                                }
+                            ?>
+
+                            
                         </li>
                     </ul>
                 </div>

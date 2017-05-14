@@ -24,7 +24,7 @@
                             </div>
                         </li>
                         <li class="nav-item navbar-toggler-right">
-                            <a href="login.html" class="nav-link">Login</a>
+                            <a href="login.php" class="nav-link">Login</a>
                         </li>
                     </ul>
                 </div>
