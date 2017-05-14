@@ -9,7 +9,7 @@
         <div class="navbar-collapse collapse" id="navbarNav3" aria-expanded="false">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" href="."><i class="fa fa-home"></i> Home</a>
+                    <a class="nav-link waves-effect waves-light" href="dasbor.php"><i class="fa fa-home"></i> Dashboard</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link waves-effect waves-light"><i class="fa fa-envelope"></i> Contact</a>
@@ -18,7 +18,7 @@
                     <a class="nav-link waves-effect waves-light" href="lab.php"><i class="fa fa-users"></i> Laboratorium</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" href="login.php"><i class="fa fa-sign-in"></i> Log in</a>
+                    <a class="nav-link waves-effect waves-light" href="logout.php"><i class="fa fa-sign-out"></i> Log out</a>
                 </li>
             </ul>
         </div>

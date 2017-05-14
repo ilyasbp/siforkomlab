@@ -9,13 +9,14 @@
 
     // Buat object user
     $admin = new Admin($db);
-
+    $login = true;
     // Jika belum login
-    if(!$admin->isLoggedIn()){
-        header("location: login.php"); //Redirect ke halaman login
+    if($admin->isLoggedIn()){
+        $login=false; //Redirect ke halaman login
+        // Ambil data admin saat ini
+        $currentAdmin = $admin->getAdminName();
     }
 
-    // Ambil data admin saat ini
-    $currentAdmin = $admin->getAdminName();
+    
 
  ?>

@@ -11,12 +11,7 @@
     $admin = new Admin($db);
 
     include_once 'header.php';
-    include_once 'navbar.php';
-
-    // Jika sudah login
-    if($admin->isLoggedIn()){
-        header("location: dasbor.php"); //Redirect ke index
-    }
+    include_once 'navbar2.php';
 
     //Jika ada data dikirim
     if(isset($_POST['kirim'])){
@@ -49,8 +44,8 @@
             <hr>
 
             <div class="row">
-                <div class="col-md-4"> </div>
-                <div class="col-md-4">
+                <div class="col-md-3"> </div>
+                <div class="col-md-6">
                     <!--Naked Form-->
                         <br>
                         <form class="register-form" method="post">
@@ -128,7 +123,7 @@
                         </form>
                     <!--Naked Form-->
                 </div>
-                <div class="col-md-4"> </div>
+                <div class="col-md-3"> </div>
             </div>
         </div>
         <?php
