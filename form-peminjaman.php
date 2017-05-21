@@ -11,29 +11,34 @@
                 </div>
             </div>
             <hr>
-            <form>
+            <form method="post" action="insert-data.php">
                 <h3>
                     Untuk Lab :
                 </h3>
                 <label for="Lab">Pilih salah satu:</label>
-                  <select class="form-control" id="Lab">
-                    <option value="LP">LP</option>
-                    <option value="LP2">LP2</option>
-                    <option value="KCV">KCV</option>
-                    <option value="AJK">AJK</option>
+                  <select class="form-control" id="Lab" name="lab">
+                    <option value="1">LP</option>
+                    <option value="2">LP2</option>
+                    <option value="3">AJK</option>
+                    <option value="4">KCV</option>
+                    <option value="5">RPL</option>
+                    <option value="6">NCC</option>
+                    <option value="7">MI</option>
+                    <option value="8">IGS</option>
+                    <option value="9">MIS</option>
                   </select>
                 <br>
 
                 <h3>
-                    Hari dan tanggal :
+                    Hari dan Tanggal :
                 </h3>
 
-								<input type="date" class="datepicker">
-									<br>
-									<br>
-									<br>
-									<h3>
-	                    Nama Penanggung jawab:
+					<input type="date" class="datepicker" name="tanggal">
+					<br>
+					<br>
+					<br>
+					<h3>
+	                    Nama Penanggung Jawab :
 	                </h3>
 	                <input type="text" name="nama">
 	                <br>
@@ -47,14 +52,21 @@
 	                <br>
 	                <br>
 	                <h3>
-										Keperluan :
-									</h3>
-									<input type="text" name="penting">
-									<br>
-									<br>
-									<br>
+                        No. Telepon :
+                    </h3>
+                    <input type="text" name="notelp">
+                    <br>
+                    <br>
+                    <br>
+                    <h3>
+						Keperluan :
+					</h3>
+					<input type="text" name="penting">
+					<br>
+					<br>
+					<br>
 
-                <a class="btn btn-default" href="">Submit</a>
+                <input class="btn btn-default" type="Submit" name="rsrv"></input>
             </form>
 
         </div>

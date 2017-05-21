@@ -33,8 +33,13 @@
                   <select class="form-control" name="lab">
                     <option value="1">LP</option>
                     <option value="2">LP2</option>
-                    <option value="3">KCV</option>
-                    <option value="4">AJK</option>
+                    <option value="3">AJK</option>
+                    <option value="4">KCV</option>
+                    <option value="5">RPL</option>
+                    <option value="6">NCC</option>
+                    <option value="7">MI</option>
+                    <option value="8">IGS</option>
+                    <option value="9">MIS</option>
                   </select>
                 <br>
 
