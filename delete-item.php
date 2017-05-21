@@ -37,8 +37,10 @@
     header("location: list_agenda.php");
 	}
 	elseif ($act=="admin_lab") {
-    $sql = "DELETE FROM anggota_lab where id_anggota_lab = '$id'";
-		$res = $db->query($sql);
+    $sql = "DELETE FROM admin_lab where id_admin_lab = ?";
+		$stmt = $db->prepare( $sql );
+		$stmt->bindParam(1, $id);
+		$stmt->execute();
 
     header("location: list_admin_lab.php");
 	}

@@ -7,11 +7,14 @@
   $db = $database->getConnection();
 
     //if(isset($_SESSION["id"])){
-      $nama_tabel = "anggota_lab";
+      $nama_tabel = "admin_lab";
 #      $_SESSION['id_lab'] = 1;
-      $id_lab_temp = 1;
-      $sql = "SELECT * FROM `$nama_tabel` WHERE id_lab = '$id_lab_temp'";
-      $res = $db->query($sql);
+      $id_lab_temp = 3;
+      $sql = "SELECT * FROM admin_lab WHERE id_lab = :id_lab_temp";
+
+      $stmt = $db->prepare( $sql );
+      $stmt->bindParam(":id_lab_temp", $id_lab_temp);
+      $stmt->execute();
 
     //}
 
@@ -29,26 +32,28 @@
       <div class="row" style="text-align: -webkit-center">
           <?php
                   echo "<table class='display dataTable' style='width:70%; text-align: center'>";
-                  $cnt = $res->num_rows;
+                  $cnt = $stmt->rowCount();
                   if($cnt>0){
 
                     echo "<thead><tr>
-                              <th style='text-align: center;'>Id anggota</th>
-                              <th style='text-align: center;'>Nama admin</th>
-                              <th style='text-align: center;'>Jabatan</th>
-                              <th style='text-align: center;'>Ubah</th>
+                              <th style='text-align: center;'>Id Admin</th>
+                              <th style='text-align: center;'>Nama Admin</th>
+                              <th style='text-align: center;'>No Telepon</th>
+                              <th style='text-align: center;'>Alamat</th>
+                              <th style='text-align: center;'>Edit</th>
                             </tr>
                           </thead>
                          <tbody>";
 
 
-                    while($row = $res->fetch_array(MYSQLI_ASSOC)){
-                      $id = $row['id_anggota_lab'];
+                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                      $id = $row['id_admin_lab'];
 
                       echo "<tr>";
-                      echo "<td>".$row["id_anggota_lab"]."</td>";
-                      echo "<td>".$row["nama_anggota_lab"]."</td>";
-                      echo "<td>".$row["jabatan_anggota_lab"]."</td>";
+                      echo "<td>".$row["id_admin_lab"]."</td>";
+                      echo "<td>".$row["nama_admin_lab"]."</td>";
+                      echo "<td>".$row["no_telepon_admin_lab"]."</td>";
+                      echo "<td>".$row["alamat_admin_lab"]."</td>";
                       echo "<td><a href='detail-item.php?id=".$id."&act=admin_lab' class='btn btn-default'>Lihat detail</a>";
                       echo "<a href='delete-item.php?id=".$id."&act=admin_lab' class='btn btn-danger'>Hapus</a></td>";
                       echo "</tr>";
@@ -77,5 +82,3 @@
 <?php
   include 'footer.php';
  ?>
-009601001
-968305

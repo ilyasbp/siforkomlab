@@ -72,21 +72,25 @@
 		echo "<h2>Untuk Lab : ".$sender[0]."</h2><br>";
 	}
 	elseif ($act=="admin_lab") {
-		$sql = "SELECT * FROM anggota_lab where id_anggota_lab = '$id'";
-		$sql1 = "SELECT nama_lab from laboratorium l, anggota_lab a where l.id_lab = r.id_lab and r.id_anggota_lab = '$id'";
-		$res = $db->query($sql);
-		$isi = $res->fetch_array(MYSQLI_NUM);
-		$res1 = $db->query($sql1);
-		$sender = $res1->fetch_array(MYSQLI_NUM);
+		$sql = "SELECT * FROM admin_lab where id_admin_lab = ?";
+		$sql1 = "SELECT l.nama_lab from laboratorium l, admin_lab a where l.id_lab = r.id_lab and r.id_admin_lab = ?";
+		$res = $db->prepare($sql);
+		$res->bindParam(1, $id);
+		$res->execute();
+		$isi = $res->fetch(PDO::FETCH_NUM);
+		$res1 = $db->prepare($sql);
+		$res1->bindParam(1, $id);
+		$res1->execute();
+		$sender = $res1->fetch(PDO::FETCH_NUM);
 
-		echo "<h1>Detail Anggota Lab :".$sender[0]."</h1>";
+		echo "<h1>Detail Admin Lab :".$sender[0]."</h1>";
 		echo "</div>";
 		echo "</div>";
 		echo "<hr>";
 		echo "<h2>Nama Lengkap : ".$isi[3]."</h2><br>";
-		echo "<h2>Jabatan : ".$isi[2]."</h2><br>";
-		echo "<h2>Email : ".$isi[4]."</h2><br>";
-		echo "<h2>Judul Riset : ".$isi[5]."</h2><br>";
+		echo "<h2>Nomor Telepon : ".$isi[4]."</h2><br>";
+		echo "<h2>Alamat : ".$isi[5]."</h2><br>";
+		echo "<h2>Email : ".$isi[6]."</h2><br>";
 	}
 
  ?>
