@@ -166,7 +166,7 @@
                                                     <!--Main chart-->
                                                     <a class="btn btn-default" href="form-daftar-admin-anggota.php" style="width:400px">Daftarkan admin baru
                                                     </a><br>
-                                                    <a class="btn btn-default" href="list_user.php" style="width:400px">Daftar Admin
+                                                    <a class="btn btn-default" href="list_admin_lab.php" style="width:400px">Daftar Admin
                                                     </a><br>
                                                     <a class="btn btn-default" href="form-daftar-user.php" style="width:400px">Daftarkan user TA baru
                                                     </a><br>
@@ -199,61 +199,11 @@
                         <!--/Main row-->
                         <br>
                         <div class="row">
-                            <div class="col-md-4">
 
-
-                                <div class="card mb-r">
-                                    <div class="card-block">
-                                        <div class="table-responsive">
-                                            <table class="table large-header">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Pesan</th>
-                                                        <th>Penulis</th>
-                                                        <th>Pages</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Material Design</td>
-                                                        <td>15</td>
-                                                        <td>307</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Bootstrap</td>
-                                                        <td>32</td>
-                                                        <td>504</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>MDBootstrap</td>
-                                                        <td>41</td>
-                                                        <td>613</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Frontend</td>
-                                                        <td>14</td>
-                                                        <td>208</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>CSS Framework</td>
-                                                        <td>24</td>
-                                                        <td>314</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                        <button class="btn-flat waves-effect float-right">View full report</button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
 
 
                         <br>
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <div class="card mb-r">
                                 <div class="card-block">
                                     <table class="table large-header">

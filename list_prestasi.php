@@ -30,11 +30,11 @@
         <table class="display dataTable" style="width:70%; text-align: center">
           <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>Nama</th>
-                    <th>NRP</th>
-                    <th>Kejuaraan</th>
-                    <th>Peringkat</th>
+                    <th style="text-align: center;">ID</th>
+                    <th style="text-align: center;">Nama</th>
+                    <th style="text-align: center;">NRP</th>
+                    <th style="text-align: center;">Kejuaraan</th>
+                    <th style="text-align: center;">Peringkat</th>
                     <th style="text-align: center;">Ubah</th>
                   </tr>
                 </thead>
@@ -46,8 +46,8 @@
                         $id = $row['id_pres'];
 
                         echo "<tr>";
+                        echo "<td>".$row["id_pres"]."</td>";
                         echo "<td>".$row["nama"]."</td>";
-                        echo "<td>".$row["nama_user"]."</td>";
                         echo "<td>".$row["nrp"]."</td>";
                         echo "<td>".$row["lomba"]."</td>";
                         echo "<td>".$row["peringkat"]."</td>";
@@ -57,7 +57,7 @@
                       }
                     }
                     else {
-                      echo "<h1>Tidak ada user</h1>";
+                      echo "<h1>Tidak ada prestasi</h1>";
                     }
                    ?>
                   <tr>
@@ -66,7 +66,7 @@
                     <td>511012256</td>
                     <td>Hackathon</td>
                     <td>Juara Harapan 1</td>
-                    <td><a href="detail_prestasi.php" class="btn btn-default">Lihat detail</a>
+                    <td><a href="detail-item.php?id=1&act=prestasi" class="btn btn-default">Lihat detail</a>
                     <a href="" class="btn btn-default">Hapus</a>
                     </td>
                   </tr>

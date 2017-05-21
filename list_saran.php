@@ -53,7 +53,7 @@
                       }
                     }
                     else {
-                      echo "<h1>Tidak ada user</h1>";
+                      echo "<h1>Tidak ada saran</h1>";
                     }
                    ?>
 

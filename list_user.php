@@ -30,8 +30,8 @@
         <table class="display dataTable" style="width:70%; text-align: center">
           <thead>
                   <tr>
-                    <th>Id user</th>
-                    <th>Nama user</th>
+                    <th style="text-align: center;">Id user</th>
+                    <th style="text-align: center;">Nama user</th>
                     <th style="text-align: center;">Ubah</th>
                   </tr>
                 </thead>
