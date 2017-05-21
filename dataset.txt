@@ -1,0 +1,8 @@
+INSERT INTO laboratorium VALUES(2, "Lab Pemrograman 2", "LP2.if.its.ac.id");
+INSERT INTO laboratorium VALUES(1, "Lab Pemrograman", "LP.if.its.ac.id");
+INSERT INTO laboratorium VALUES(3, "Lab AJK", "AJK.if.its.ac.id");
+INSERT INTO laboratorium VALUES(4, "Lab KCV", "KCV.if.its.ac.id");
+INSERT INTO laboratorium VALUES(5, "Lab RPL", "RPL.if.its.ac.id");
+INSERT INTO laboratorium VALUES(6, "Lab NCC", "NCC.if.its.ac.id");
+INSERT INTO laboratorium VALUES(7, "Lab MI", "MI.if.its.ac.id");
+INSERT INTO laboratorium VALUES(8, "Lab MIS", "MIS.if.its.ac.id");
