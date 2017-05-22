@@ -15,7 +15,15 @@
 
 						<!--2. isi methodnya ='post' action insert-data.php, perhatikan variabel "name = ", nantinya itu yang bakal di passing -->
             <form method="post" action="insert-data.php">
-                <h3>
+								<h3>
+									Nama User:
+								</h3>
+								<input type="text" name="nama_user">
+								<br>
+								<br>
+								<br>
+								
+								<h3>
                     Untuk Lab :
                 </h3>
                 <label for="lab">Pilih salah satu:</label>

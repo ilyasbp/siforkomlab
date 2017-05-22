@@ -4,7 +4,7 @@
     include_once "config/database.php";
     include_once "object/admin.php";
     include_once "login-check.php";
-    if($login){ header("location: login.php");}
+    //if($login){ header("location: login.php");}
 
     include_once "header.php";
   $date = new DateTime();
@@ -216,7 +216,7 @@
                                         </tbody>
                                     </table>
 
-                                    <button href="list_saran.php" class="btn-flat waves-effect float-right">Lihat Semua saran</button>
+                                    <a href="list_saran.php" class="btn-flat waves-effect float-right">Lihat Semua saran</a>
 
                                 </div>
 
