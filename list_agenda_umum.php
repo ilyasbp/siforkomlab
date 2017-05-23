@@ -1,4 +1,5 @@
 <?php
+  $page_title="List Agenda Laboratorium";
   include 'header.php';
   include 'navbar.php';
   include 'config/database.php';

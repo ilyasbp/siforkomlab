@@ -1,6 +1,7 @@
 <?php
+  $page_title="List Admin Laboratorium";
   include 'header.php';
-  include 'navbar.php';
+  include 'navbar2.php';
   include 'config/database.php';
 
   $database = new Database();
@@ -76,9 +77,10 @@
       </div>
 </div>
 
+    
+    <?php
+        include "footer.php";
+    ?>
+    
 </main>
 </body>
-
-<?php
-  include 'footer.php';
- ?>

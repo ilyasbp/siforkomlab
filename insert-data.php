@@ -1,4 +1,5 @@
 <?php
+    $page_title="Insert";
 include 'header.php';
 include 'navbar2.php';
 include 'config/database.php';

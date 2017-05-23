@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+    $page_title="Dasboard Admin Sistem";
     // Lampirkan db dan User
     include_once "config/database.php";
     include_once "object/admin.php";
@@ -234,6 +235,13 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+
+    
+    <?php
+        include "footer.php";
+    ?>
+    
+
 </body>
 
 </html>

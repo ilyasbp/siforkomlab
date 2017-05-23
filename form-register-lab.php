@@ -1,4 +1,5 @@
 <?php
+    $page_title="Penambahan Lab";
 	include_once "config/database.php";
     include_once "object/lab.php";
 
@@ -77,4 +78,9 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    
+    <?php
+        include "footer.php";
+    ?>
+    
 </body>

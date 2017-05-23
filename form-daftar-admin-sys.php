@@ -1,4 +1,5 @@
 <?php
+    $page_title="Pendaftaran Admin Sistem";
 	include 'header.php';
 	include 'navbar.php';
  ?>
@@ -56,9 +57,11 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    
+    <?php
+        include "footer.php";
+    ?>
+    
 </body>
 
 </html>
-<?php
-	include('footer.php');
- ?>

@@ -1,4 +1,5 @@
 <?php
+    $page_title="Status Kunci";
     include_once "header.php"
 ?>
 
@@ -43,7 +44,7 @@
                     <h3>Laboratorium Pemrograman</h3>
                 </div>
             </div>
-            <div style="height:2000px;"></div>
+            <div style="height:100px;"></div>
 
         </div>
     </main>
@@ -88,6 +89,11 @@
             return i;
         }
     </script>
+    
+    <?php
+        include "footer.php";
+    ?>
+    
 </body>
 
 </html>

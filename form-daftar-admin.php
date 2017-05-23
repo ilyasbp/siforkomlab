@@ -1,4 +1,5 @@
 <?php
+    $page_title="Pendaftaran Admin";
     include_once "config/database.php";
     include_once "object/admin.php";
     include_once "object/lab.php";
@@ -132,9 +133,6 @@
                 <div class="col-md-3"> </div>
             </div>
         </div>
-        <?php
-          include_once 'footer.php';
-         ?>
     </main>
 
     <!-- SCRIPTS -->
@@ -146,4 +144,9 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    
+    <?php
+        include "footer.php";
+    ?>
+    
 </body>

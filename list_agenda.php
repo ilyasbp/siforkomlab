@@ -1,4 +1,5 @@
 <?php
+    $page_title="List Agenda Laboratorium";
   include 'header.php';
   include 'navbar2.php';
   include 'config/database.php';
@@ -68,8 +69,9 @@
 </div>
 
 </main>
+    
+    <?php
+        include "footer.php";
+    ?>
+    
 </body>
-
-<?php
-  include 'footer.php';
- ?>

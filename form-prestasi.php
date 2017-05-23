@@ -1,6 +1,7 @@
 <?php
+    $page_title="Tambah Prestasi";
 	include 'header.php';
-	include 'navbar.php';
+	include 'navbar2.php';
  ?>
 
 	<main class="pt-6 text-center">
@@ -79,11 +80,12 @@
 
 		<!-- MDB core JavaScript -->
 		<script type="text/javascript" src="js/mdb.min.js"></script>
+    
+    <?php
+        include "footer.php";
+    ?>
+    
 
 </body>
 
 </html>
-
-<?php
-	include 'footer.php';
- ?>

@@ -1,6 +1,7 @@
 <?php
+    $page_title="List Prestasi Laboratorium";
   include 'header.php';
-//  include 'navbar2.php';
+  include 'navbar2.php';
   include 'config/database.php';
 
   $database = new Database();
@@ -113,8 +114,9 @@
 </div>
 
 </main>
+    
+    <?php
+        include "footer.php";
+    ?>
+    
 </body>
-
-<?php
-  include 'footer.php';
- ?>

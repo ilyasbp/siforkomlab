@@ -98,8 +98,6 @@
                 </div>
             </div>
 
-
-            <div style="height:2000px;"></div>
         </div>
     </main>
 
@@ -118,6 +116,11 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    
+    <?php
+        include "footer.php";
+    ?>
+    
 </body>
 
 </html>

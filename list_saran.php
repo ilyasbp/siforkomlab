@@ -1,6 +1,7 @@
 <?php
+  $page_title="List Saran Laboratorium";
   include 'header.php';
-  //include 'navbar.php';
+  include 'navbar2.php';
   include 'config/database.php';
 
   $database = new Database();
@@ -70,8 +71,10 @@
 </div>
 
 </main>
-</body>
 
-<?php
-  include 'footer.php';
- ?>
+    
+    <?php
+        include "footer.php";
+    ?>
+    
+</body>

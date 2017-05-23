@@ -1,4 +1,5 @@
 <?php
+    $page_title="Detail";
 	include 'header.php';
 	//include 'navbar.php';
 	include 'config/database.php';
@@ -132,10 +133,13 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+
+    
+    <?php
+        include "footer.php";
+    ?>
+    
+
 </body>
 
 </html>
-
-<?php
-	include 'footer.php';
- ?>
