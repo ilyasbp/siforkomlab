@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+include 'navbar2.php';
 include 'config/database.php';
 
 $database = new Database();
@@ -50,7 +51,7 @@ $db = $database->getConnection();
     //8. isi sesuai "name = " tadi
     $nama_user = ($_POST['nama']);
     $nrp_user = ($_POST['nrp']);
-    $lab = ($_POST['lab']);
+    $id_lab = ($_POST['lab']);
 
     
     //9. ini contoh, nanti pake $_SESSION

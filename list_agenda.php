@@ -1,6 +1,6 @@
 <?php
   include 'header.php';
-  include 'navbar.php';
+  include 'navbar2.php';
   include 'config/database.php';
 
   $database = new Database();
@@ -9,10 +9,12 @@
     //if(isset($_SESSION["id"])){
       $nama_tabel = "reservasi";
 #      $_SESSION['id_lab'] = 1;
-      $id_lab_temp = 1;
-      $sql = "SELECT * FROM `$nama_tabel` WHERE id_lab = '$id_lab_temp'";
-      $res = $db->query($sql);
-
+      $id_lab_temp = 6;
+      $sql = "SELECT * FROM ".$nama_tabel." WHERE id_lab = :id_lab_temp";
+      $res = $db->prepare( $sql );
+      $res->bindParam(":id_lab_temp", $id_lab_temp);
+//      $res->bindParam(":nama_tabel", $nama_tabel);
+      $res->execute();
     //}
 ?>
 
@@ -37,9 +39,9 @@
                 </thead>
                 <tbody>
                   <?php
-                    $cnt = $res->num_rows;
+                    $cnt = $res->rowCount();
                     if($cnt>0){
-                      while($row = $res->fetch_array(MYSQLI_ASSOC)){
+                      while($row = $res->fetch(PDO::FETCH_ASSOC)){
                         $id = $row['id_reserv'];
 
                         echo "<tr>";
@@ -55,41 +57,6 @@
                       echo "<h1>Tidak ada agenda</h1>";
                     }
                    ?>
-                  <tr>
-                    <td>1</td>
-                    <td>Bimbingan TA</td>
-                    <td>5 Mei 2017, 13.00</td>
-
-                    <td><a href="detail_agenda.php" class="btn btn-default">Lihat detail</a>
-                    <a href="" class="btn btn-default">Hapus</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>LBE</td>
-                    <td>5 Mei 2017, 18.00</td>
-
-                    <td><a href="" class="btn btn-default">Lihat detail</a>
-                    <a href="" class="btn btn-default">Hapus</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Rapat Admin</td>
-                    <td>10 Mei 2017, 14.30</td>
-
-                    <td><a href="" class="btn btn-default">Lihat detail</a>
-                    <a href="" class="btn btn-default">Hapus</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Maintenance</td>
-                    <td>25 Mei 2017, 7.00</td>
-
-                    <td><a href="" class="btn btn-default">Lihat detail</a>
-                    <a href="" class="btn btn-default">Hapus</a>
-                    </td>
                   </tr>
                 </tbody>
         </table>

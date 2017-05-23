@@ -29,6 +29,7 @@
             $success = true;
         }else{
             // Jika gagal, ambil pesan error
+            $failed = true;
             $error = $admin->getLastError();
         }
     }
@@ -49,16 +50,21 @@
                     <!--Naked Form-->
                         <br>
                         <form class="register-form" method="post">
-                            <?php if (isset($error)): ?>
-                                <div class="error">
-                                    <?php echo $error ?>
-                                </div>
-                            <?php endif; ?>
-                            <?php if (isset($success)): ?>
-                                <div class="success">
-                                    Berhasil mendaftar. Silakan <a href="login.php">masuk</a>
-                                </div>
-                            <?php endif; ?>
+                            <?php
+                                if(isset($success)){
+                                    echo '<div class="alert alert-success alert-dismissable">';
+                                    echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+                                    echo "Berhasil menambah admin dengan nama $nama";
+                                    echo "</div>";
+                                }
+                                if(isset($failed)){
+                                    echo '<div class="alert alert-danger alert-dismissable">';
+                                    echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+                                    echo 'Unable to create product.';
+                                    echo 'error: $error';
+                                    echo '</div>';
+                                }
+                            ?>
                                 
                                 <div class="md-form">
                                 <i class="fa fa-user prefix"></i>
@@ -77,7 +83,7 @@
                             </div>
                             <div class="md-form">
                                 <i class="fa fa-envelope prefix"></i>
-                                <input type="text" id="formEmail" class="form-control" name="email">
+                                <input type="email" id="formEmail" class="form-control" name="email">
                                 <label for="formEmail">Email</label>
                             </div>
                             <div class="md-form">

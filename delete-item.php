@@ -23,6 +23,7 @@
 
     header("location: list_saran.php");
 	}
+
 	elseif($act=="prestasi"){
     $sql = "DELETE FROM prestasi where id_pres = '$id'";
 		$res = $db->query($sql);
@@ -30,6 +31,7 @@
     header("location: list_prestasi.php");
 
 	}
+
 	elseif ($act=="reserv") {
     $sql = "DELETE FROM reservasi where id_reserv = '$id'";
 		$res = $db->query($sql);
@@ -43,6 +45,14 @@
 		$stmt->execute();
 
     header("location: list_admin_lab.php");
+	}
+	elseif ($act=="user") {
+    $sql = "DELETE FROM user where id_user = ?";
+		$stmt = $db->prepare( $sql );
+		$stmt->bindParam(1, $id);
+		$stmt->execute();
+
+    header("location: list_user.php");
 	}
 
  ?>

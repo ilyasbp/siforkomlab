@@ -18,15 +18,18 @@
 
 	if($act == "saran"){
 
-		$sql = "SELECT isi_saran FROM saran where id_saran = '$id'";
-		$sql1 = "SELECT nama_user from user u, saran s where s.id_user = u.id_user and s.id_saran = '$id'";
-		$res = $db->query($sql);
-		$isi = $res->fetch_array(MYSQLI_NUM);
-		$res1 = $db->query($sql1);
-		$sender = $res1->fetch_array(MYSQLI_NUM);
+		$sql = "SELECT isi_saran FROM saran where id_saran = :id";
+		$sql1 = "SELECT nama_user from user u, saran s where u.id_user = s.id_user and s.id_user = :id";
+		$res = $db->prepare($sql);
+		$res->bindParam(":id", $id);
+		$res->execute();
+		$isi = $res->fetch(PDO::FETCH_NUM);
+		$res1 = $db->prepare($sql);
+		$res1->bindParam(":id", $id);
+		$res1->execute();
+		$sender = $res1->fetch(PDO::FETCH_NUM);
 
-		echo "<h1>Saran dari : ";
-		echo $sender[0]."</h1>";
+		echo "<h1>Saran dari : ".$sender[0]."</h1>";
 		echo "</div>";
 		echo "</div>";
 		echo "<hr>";
@@ -36,10 +39,14 @@
 	elseif($act=="prestasi"){
 		$sql = "SELECT * FROM prestasi where id_pres = '$id'";
 		$sql1 = "SELECT nama_lab from laboratorium l, prestasi p where l.id_lab = p.id_pres and p.id_pres = '$id'";
-		$res = $db->query($sql);
-		$isi = $res->fetch_array(MYSQLI_NUM);
-		$res1 = $db->query($sql1);
-		$sender = $res1->fetch_array(MYSQLI_NUM);
+		$res = $db->prepare($sql);
+		$res->bindParam(1, $id);
+		$res->execute();
+		$isi = $res->fetch(PDO::FETCH_NUM);
+		$res1 = $db->prepare($sql);
+		$res1->bindParam(1, $id);
+		$res1->execute();
+		$sender = $res1->fetch(PDO::FETCH_NUM);
 
 		echo "<h1>Prestasi kejuaraan : ";
 		echo $isi[3]."</h1>";
@@ -48,17 +55,21 @@
 		echo "<hr>";
 		echo "<h2>Nama : ".$isi[1]."</h2><br>";
 		echo "<h2>NRP : ".$isi[2]."</h2><br>";
-		echo "<h2>Pelaksanaan : ".date("D-M-Y", $isi[4])."</h2><br>";
+		echo "<h2>Pelaksanaan : ".date("d-M-Y", strtotime(str_replace('-','/', $isi[4])))."</h2><br>";
 		echo "<h2>Peringkat : ".$isi[5]."</h2><br>";
-		echo "<h2>Dari laboratorium : ".$sender[0]."</h2><br>";
+		echo "<h2>Dari laboratorium : ".$sender[2]."</h2><br>";
 	}
 	elseif ($act=="reserv") {
 		$sql = "SELECT * FROM reservasi where id_reserv = '$id'";
 		$sql1 = "SELECT nama_lab from laboratorium l, reservasi r where l.id_lab = r.id_lab and r.id_reserv = '$id'";
-		$res = $db->query($sql);
-		$isi = $res->fetch_array(MYSQLI_NUM);
-		$res1 = $db->query($sql1);
-		$sender = $res1->fetch_array(MYSQLI_NUM);
+		$res = $db->prepare($sql);
+		$res->bindParam(1, $id);
+		$res->execute();
+		$isi = $res->fetch(PDO::FETCH_NUM);
+		$res1 = $db->prepare($sql);
+		$res1->bindParam(1, $id);
+		$res1->execute();
+		$sender = $res1->fetch(PDO::FETCH_NUM);
 
 		echo "<h1>Detail Reservasi :</h1>";
 		echo "</div>";
@@ -91,6 +102,19 @@
 		echo "<h2>Nomor Telepon : ".$isi[4]."</h2><br>";
 		echo "<h2>Alamat : ".$isi[5]."</h2><br>";
 		echo "<h2>Email : ".$isi[6]."</h2><br>";
+	}
+	elseif ($act=="user") {
+		$sql = "SELECT * FROM user where id_user = ?";
+		$res = $db->prepare($sql);
+		$res->bindParam(1, $id);
+		$res->execute();
+		$isi = $res->fetch(PDO::FETCH_ASSOC);
+
+		echo "<h1>Detail Admin Lab : ".$isi['nama_user']." </h1>";
+		echo "</div>";
+		echo "</div>";
+		echo "<hr>";
+		echo "<h2>NRP : ".$isi['nrp_user']."</h2><br>";
 	}
 
  ?>

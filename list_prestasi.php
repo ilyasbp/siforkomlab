@@ -1,6 +1,6 @@
 <?php
   include 'header.php';
-  include 'navbar.php';
+//  include 'navbar2.php';
   include 'config/database.php';
 
   $database = new Database();
@@ -9,9 +9,12 @@
     //if(isset($_SESSION["id"])){
       $nama_tabel = "prestasi";
 #      $_SESSION['id_lab'] = 1;
-      $id_lab_temp = 1;
-      $sql = "SELECT * FROM `$nama_tabel` WHERE id_lab = '$id_lab_temp'";
-      $res = $db->query($sql);
+      $id_lab_temp = 3;
+      $sql = "SELECT * FROM ".$nama_tabel." WHERE id_lab = :id_lab_temp";
+      $res = $db->prepare( $sql );
+      $res->bindParam(":id_lab_temp", $id_lab_temp);
+//      $res->bindParam(":nama_tabel", $nama_tabel);
+      $res->execute();
 
     //}
 
@@ -40,9 +43,9 @@
                 </thead>
                 <tbody>
                   <?php
-                    $cnt = $res->num_rows;
+                    $cnt = $res->rowCount();
                     if($cnt>0){
-                      while($row = $res->fetch_array(MYSQLI_ASSOC)){
+                      while($row = $res->fetch(PDO::FETCH_ASSOC)){
                         $id = $row['id_pres'];
 
                         echo "<tr>";

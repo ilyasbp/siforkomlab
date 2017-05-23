@@ -26,13 +26,32 @@
 								<h3>
                     Untuk Lab :
                 </h3>
-                <label for="lab">Pilih salah satu:</label>
-                  <select class="form-control" name="lab">
-                    <option value="1">LP</option>
-                    <option value="2">LP2</option>
-                    <option value="3">KCV</option>
-                    <option value="4">AJK</option>
-                  </select>
+               
+                  <?php
+                                    include_once 'config/database.php';
+                                    include_once 'object/lab.php';
+
+                                    // get database connection
+                                    $database = new Database();
+                                    $db = $database->getConnection();
+
+                                    $lab = new Lab($db);
+                                    $stmt = $lab->read();
+
+
+                                    
+                                    echo '<label for="lab">Pilih salah satu:</label>';
+                                    echo '<select name="lab" class="form-control">';
+                                    echo '<option value="" disabled selected>Laboratorium</option>';
+
+                                    while ($row_lab = $stmt->fetch(PDO::FETCH_ASSOC))
+                                    {
+                                        extract($row_lab);
+                                        echo '<option value="'.$id_lab.'">'.$nama_lab.'</option>';
+                                    }
+
+                                    echo '</select>';
+                                ?>
                 <br>
 
                 <h3>
