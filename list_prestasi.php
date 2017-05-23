@@ -31,23 +31,24 @@
       </div>
 
       <div class="row" style="text-align: -webkit-center">
-        <table class="display dataTable" style="width:70%; text-align: center">
-          <thead>
-                  <tr>
-                    <th style="text-align: center;">ID</th>
-                    <th style="text-align: center;">Nama</th>
-                    <th style="text-align: center;">NRP</th>
-                    <th style="text-align: center;">Kejuaraan</th>
-                    <th style="text-align: center;">Peringkat</th>
-                    <th style="text-align: center;">Ubah</th>
-                  </tr>
-                </thead>
-                <tbody>
                   <?php
                     $cnt = $res->rowCount();
                     if($cnt>0){
                       while($row = $res->fetch(PDO::FETCH_ASSOC)){
                         $id = $row['id_pres'];
+
+                        echo "<table class='display dataTable' style='width:70%; text-align: center'>";
+                        echo "<thead>";
+                        echo "<tr>";
+                        echo "<th style='text-align: center;'>ID</th>";
+                        echo "<th style='text-align: center;'>Nama</th>";
+                        echo "<th style='text-align: center;'>NRP</th>";
+                        echo "<th style='text-align: center;'>Kejuaraan</th>";
+                        echo "<th style='text-align: center;'>Peringkat</th>";
+                        echo "<th style='text-align: center;'>Ubah</th>";
+                        echo "</tr>";
+                        echo "</thead>";
+                        echo "<tbody>";
 
                         echo "<tr>";
                         echo "<td>".$row["id_pres"]."</td>";
@@ -58,12 +59,20 @@
                         echo "<td><a href='detail-item.php?id=".$id."&act=prestasi' class='btn btn-default'>Lihat detail</a>";
                         echo "<a href='delete-item.php?id=".$id."&act=prestasi' class='btn btn-danger'>Hapus</a></td>";
                         echo "</tr>";
+                        echo "</tr>";
+                        echo "</tbody>";
+                        echo "</table>";
                       }
                     }
                     else {
-                      echo "<h1>Tidak ada prestasi</h1>";
+                      echo "<br>";
+                      echo "<br>";
+                      echo "<div class='col text-center'>
+                      <h1>Tidak ada Prestasi</h1>
+                      </div>";
                     }
                    ?>
+                   <!--
                   <tr>
                     <td>1</td>
                     <td>Ilyas B</td>
@@ -105,7 +114,7 @@
                     </td>
                   </tr>
                 </tbody>
-        </table>
+        </table>-->
       </div>
 
 
@@ -114,9 +123,9 @@
 </div>
 
 </main>
-    
+
     <?php
         include "footer.php";
     ?>
-    
+
 </body>

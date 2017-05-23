@@ -54,9 +54,11 @@
       echo "</table>";
     }
     else {
-      echo "<center>";
-      echo "<h1>Tidak ada user</h1>";
-      echo "<center>";
+      echo "<br>";
+      echo "<br>";
+      echo "<div class='col text-center'>
+      <h1>Tidak ada User</h1>
+      </div>";
     }
 
 ?>

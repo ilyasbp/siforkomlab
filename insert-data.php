@@ -36,7 +36,7 @@ $db = $database->getConnection();
     $nrp = ($_POST['nrp']);
     $telp = ($_POST['notelp']);
     $keperluan = ($_POST['penting']);
-    
+
     //9. ini contoh, nanti pake $_SESSION
     $user = 1;
     //ini bagian ngerjakan sqlnya, sesuaikan dengan tabel yang dipilih
@@ -54,7 +54,7 @@ $db = $database->getConnection();
     $nrp_user = ($_POST['nrp']);
     $id_lab = ($_POST['lab']);
 
-    
+
     //9. ini contoh, nanti pake $_SESSION
     $user = 1;
     //ini bagian ngerjakan sqlnya, sesuaikan dengan tabel yang dipilih
@@ -74,7 +74,7 @@ $db = $database->getConnection();
     $peringkat = ($_POST['peringkat']);
     $sertif = ($_POST['piagam']);
     $id_lab = ($_POST['lab']);
-        
+
     //9. ini contoh, nanti pake $_SESSION
     $user = 1;
     //ini bagian ngerjakan sqlnya, sesuaikan dengan tabel yang dipilih
@@ -90,7 +90,7 @@ $db = $database->getConnection();
     }
     else{
       echo "<h1>Data gagal masuk</h1>";
-      printf("Mysql error: %s",$db->error);
+      //printf("Mysql error: %s",$db->error);
     }
 
 //    mysqli_close($db);

@@ -55,6 +55,29 @@
 					<br>
 					<br>
 					<br>
+          <?php
+          include_once "config/database.php";
+          include_once "object/admin.php";
+          include_once "object/lab.php";
+
+          // get database connection
+          $database = new Database();
+          $db = $database->getConnection();
+
+              $lab = new Lab($db);
+              $stmt = $lab->read();
+
+              echo '<select name="id_lab" class="form-control">';
+              echo '<option value="" disabled selected>Laboratorium</option>';
+
+              while ($row_lab = $stmt->fetch(PDO::FETCH_ASSOC))
+              {
+                  extract($row_lab);
+                  echo '<option value="'.$id_lab.'">'.$nama_lab.'</option>';
+              }
+
+              echo '</select>';
+          ?><!--
 					<h3>
 	                    Untuk Lab :
 	                </h3>
@@ -71,7 +94,7 @@
                     <option value="9">MIS</option>
 	                </select>
 	                <br>
-
+                -->
                 <input class="btn btn-default" type="Submit" name="prestasi"></input>
             </form>
 
@@ -80,11 +103,11 @@
 
 		<!-- MDB core JavaScript -->
 		<script type="text/javascript" src="js/mdb.min.js"></script>
-    
+
     <?php
         include "footer.php";
     ?>
-    
+
 
 </body>
 

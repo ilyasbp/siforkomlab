@@ -111,7 +111,11 @@
 		$res->execute();
 		$isi = $res->fetch(PDO::FETCH_ASSOC);
 
-		echo "<h1>Detail Admin Lab : ".$isi['nama_user']." </h1>";
+		echo "<h1>Detail user Lab : </h1>";
+    echo "<br>";
+    echo "<br>";
+    echo "<br>";
+    echo "<h2>Nama User:".$isi['nama_user']." </h>";
 		echo "</div>";
 		echo "</div>";
 		echo "<hr>";
@@ -134,11 +138,11 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
 
-    
+
     <?php
         include "footer.php";
     ?>
-    
+
 
 </body>
 
