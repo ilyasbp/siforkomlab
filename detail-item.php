@@ -1,7 +1,7 @@
 <?php
     $page_title="Detail";
 	include 'header.php';
-	//include 'navbar.php';
+	include 'navbar2.php';
 	include 'config/database.php';
 
 	$database = new Database();

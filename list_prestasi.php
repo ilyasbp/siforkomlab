@@ -32,10 +32,6 @@
 
       <div class="row" style="text-align: -webkit-center">
                   <?php
-                    $cnt = $res->rowCount();
-                    if($cnt>0){
-                      while($row = $res->fetch(PDO::FETCH_ASSOC)){
-                        $id = $row['id_pres'];
 
                         echo "<table class='display dataTable' style='width:70%; text-align: center'>";
                         echo "<thead>";
@@ -49,6 +45,10 @@
                         echo "</tr>";
                         echo "</thead>";
                         echo "<tbody>";
+                    $cnt = $res->rowCount();
+                    if($cnt>0){
+                      while($row = $res->fetch(PDO::FETCH_ASSOC)){
+                        $id = $row['id_pres'];
 
                         echo "<tr>";
                         echo "<td>".$row["id_pres"]."</td>";
@@ -61,7 +61,6 @@
                         echo "</tr>";
                         echo "</tr>";
                         echo "</tbody>";
-                        echo "</table>";
                       }
                     }
                     else {
@@ -71,6 +70,8 @@
                       <h1>Tidak ada Prestasi</h1>
                       </div>";
                     }
+                    
+                        echo "</table>";
                    ?>
                    <!--
                   <tr>

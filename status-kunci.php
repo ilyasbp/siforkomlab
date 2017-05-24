@@ -39,9 +39,31 @@
                 <div class="col-md-6">
                     <h1><strong>Jadwal</strong></h1>
                     <hr>
-                    <h1> Belum Diambil </h1>
-                    <h5>Lokasi</h5>
-                    <h3>Laboratorium Pemrograman</h3>
+                    <table class="table table-hover table-responsive table-bordered text-center">
+                        <tr>
+                            <th>Range</th>
+                            <th>Laboratorium</th>
+                        </tr>
+                        <tr>
+                            <td>1 Mei 2017 - 7 Mei 2017</td>
+                            <td>KCV</td>
+                        <tr>
+                            <td>8 Mei 2017 - 14 Mei 2017</td>
+                            <td>LP</td>
+                        </tr>
+                        <tr>
+                            <td>15 Mei 2017 - 21 Mei 2017</td>
+                            <td>LP2</td>
+                        </tr>
+                        <tr>
+                            <td>22 Mei 2017 - 28 Mei 2017</td>
+                            <td>AJK</td>
+                        </tr>
+                        <tr>
+                            <td>29 Mei 2017 - 4 Juni 2017</td>
+                            <td>ALPRO</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <div style="height:100px;"></div>
